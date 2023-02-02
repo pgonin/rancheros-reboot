@@ -12,6 +12,25 @@ FROM isv/rancher/elemental/stable/teal53/15.4/rancher/elemental-teal/5.3:latest 
 # Used to parse the package source directory (MULTIARCH) -> e.g. linux/arm64
 ARG TARGETPLATFORM
 
+# elemental-toolkit essentials
+RUN system/immutable-rootfs
+RUN system/cos-setup
+RUN cloud-config/network
+RUN cloud-config/recovery
+RUN cloud-config/live
+RUN cloud-config/boot-assessment
+RUN cloud-config/default-services
+RUN cloud-config/upgrade_grub_hooks
+RUN system/grub2-config
+RUN system/base-dracut-modules
+
+# elemental-toolkit utilities
+RUN utils/k9s
+RUN utils/nerdctl
+RUN toolchain/cosign
+RUN selinux/rancher
+
+
 # Do not copy in but bind mount
 RUN --mount=type=bind,source=./packages/,target=/tmp/packages \
         # rpm -ivh \
