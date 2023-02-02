@@ -7,7 +7,7 @@
 
 
 # Step 1: Build the Operating System
-FROM registry.opensuse.org/isv/rancher/elemental/dev/teal53/15.4/rancher/elemental-teal/5.3:latest as os
+FROM isv/rancher/elemental/stable/teal53/15.4/rancher/elemental-teal/5.3:latest as os
 
 # Used to parse the package source directory (MULTIARCH) -> e.g. linux/arm64
 ARG TARGETPLATFORM
