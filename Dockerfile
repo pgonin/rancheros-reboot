@@ -31,7 +31,7 @@ RUN echo "IMAGE_REPO=${IMAGE_REPO}"          > /etc/os-release && \
     echo "IMAGE=${IMAGE_REPO}:${IMAGE_TAG}" >> /etc/os-release
 
 # Step 2: Build the ISO
-FROM registry.opensuse.org/isv/rancher/elemental/dev/teal53/15.4/rancher/elemental-builder-image/5.3:latest AS builder
+FROM registry.opensuse.org/isv/rancher/elemental/stable/teal53/15.4/rancher/elemental-builder-image/5.3:latest AS builder
 
 # Used to write multiple isos (MULTIARCH) -> e.g. arm64
 ARG TARGETARCH
