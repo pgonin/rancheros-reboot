@@ -45,3 +45,8 @@ RUN --mount=type=bind,source=./output/,target=/output,rw \
             --bootloader-in-rootfs \
             --squash-no-compression \
             -o /output/tmp -n "elemental-teal.${TARGETARCH}"
+
+RUN --mount=type=bind,source=./output/,target=/output,rw \
+        elemental build-disk \
+            --arch x86_64
+            -o /output/tmp -n "elemental-teal.${TARGETARCH}"
