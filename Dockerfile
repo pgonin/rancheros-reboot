@@ -14,9 +14,9 @@ ARG TARGETPLATFORM
 
 # Do not copy in but bind mount
 RUN --mount=type=bind,source=./packages/,target=/tmp/packages \
-        rpm -ivh \
-            /tmp/packages/linux/noarch/*.rpm \
-            /tmp/packages/${TARGETPLATFORM}/*.rpm &&\
+        # rpm -ivh \
+        #     /tmp/packages/linux/noarch/*.rpm \
+        #     /tmp/packages/${TARGETPLATFORM}/*.rpm &&\
         sed -i "s|timeout=10|timeout=1|g" /etc/cos/grub.cfg &&\
         curl -sfL https://get.k3s.io | INSTALL_K3S_SKIP_ENABLE=true sh - &&\
         rm /usr/local/bin/k3s-killall.sh /usr/local/bin/k3s-uninstall.sh && \
