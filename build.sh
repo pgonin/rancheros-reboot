@@ -12,7 +12,7 @@ done
 mkdir -p output/tmp
 
 # Enable cross-platform emulation
-podman run --privileged --rm tonistiigi/binfmt --install all
+# podman run --privileged --rm tonistiigi/binfmt --install all
 
 # Build the ISOs
 buildah build \
